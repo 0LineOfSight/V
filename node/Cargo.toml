@@ -1,0 +1,37 @@
+[package]
+name = "node"
+version = "0.3.3"
+edition = "2024"
+
+[dependencies]
+# workspace deps
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+tokio = { workspace = true }
+axum = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+uuid = { workspace = true }
+bytes = { workspace = true }
+async-trait = { workspace = true }
+parking_lot = { workspace = true }
+once_cell = { workspace = true }
+prometheus = { workspace = true }
+libp2p = { workspace = true }
+hex = { workspace = true }
+ed25519-dalek = { workspace = true }
+
+# internal crates (workspace members)
+types = { path = "../crates/types" }
+crypto = { path = "../crates/crypto" }
+storage = { path = "../crates/storage" }
+exec = { path = "../crates/exec" }
+mempool = { path = "../crates/mempool" }
+consensus = { path = "../crates/consensus" }
+net_quic = { path = "../crates/net_quic" }
+net_p2p = { path = "../crates/net_p2p" }
+telemetry = { path = "../crates/telemetry" }
+da = { path = "../crates/da" }
+rpc = { path = "../crates/rpc" }
+configd = { path = "../crates/configd" }

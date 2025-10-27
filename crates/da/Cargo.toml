@@ -1,0 +1,12 @@
+
+[package]
+name = "da"
+version = "0.2.3"
+edition = "2021"
+
+[dependencies]
+anyhow = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+blake3 = { workspace = true }
+reed-solomon-erasure = { workspace = true }

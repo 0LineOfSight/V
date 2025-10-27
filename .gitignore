@@ -1,0 +1,13 @@
+
+/target
+**/*.swp
+**/*.swo
+**/.DS_Store
+*.log
+.cargo/
+.idea/
+.vscode/
+/db
+/snapshots
+/config
+/consensus_store

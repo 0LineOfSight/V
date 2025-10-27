@@ -1,0 +1,20 @@
+
+[package]
+name = "exec"
+version = "0.3.3"
+edition = "2021"
+
+[features]
+default = []
+rocksdb = ["storage/rocksdb"]
+
+[dependencies]
+anyhow = { workspace = true }
+tokio = { workspace = true }
+parking_lot = { workspace = true }
+serde = { workspace = true }
+types = { path = "../types" }
+storage = { path = "../storage" }
+prometheus = { workspace = true }
+once_cell = { workspace = true }
+rayon = { workspace = true }

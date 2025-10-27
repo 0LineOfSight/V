@@ -1,0 +1,12 @@
+
+[package]
+name = "mempool"
+version = "0.1.3"
+edition = "2021"
+
+[dependencies]
+anyhow = { workspace = true }
+tokio = { workspace = true }
+types = { path = "../types" }
+prometheus = { workspace = true }
+once_cell = { workspace = true }

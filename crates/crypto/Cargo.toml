@@ -1,0 +1,18 @@
+
+[package]
+name = "crypto"
+version = "0.2.3"
+edition = "2021"
+
+[features]
+default = []
+bls = ["dep:blst"]
+
+[dependencies]
+ed25519-dalek = { workspace = true }
+rand_core = { workspace = true }
+hex = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+blst = { version = "0.3", optional = true }

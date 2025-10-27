@@ -1,0 +1,15 @@
+[package]
+name = "net_quic"
+version = "0.1.3"
+edition = "2021"
+
+[dependencies]
+anyhow = { workspace = true }
+tokio = { workspace = true }
+quinn = { workspace = true }
+rcgen = { workspace = true }
+tracing = { workspace = true }
+futures-util = { workspace = true }
+tokio-util = { workspace = true }
+rustls = { workspace = true }
+rustls-pki-types = { workspace = true }
