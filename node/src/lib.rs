@@ -1,3 +1,5 @@
+pub use rpc_adapter::NodeApiAdapter;
+mod rpc_adapter;
 
 use parking_lot::Mutex;
 use std::collections::HashMap;
@@ -70,3 +72,33 @@ impl SubmitApi for Node {
         Ok(self.executor().balance(&addr))
     }
 }
+
+
+
+
+
+
+#[async_trait::async_trait]
+impl rpc::NodeApi for Node {
+    async fn submit_transfer(&self, t: rpc::TransferReq) -> anyhow::Result<types::Receipt> {
+        let tx = types::Transfer {
+            from: t.from,
+            to: t.to,
+            amount: t.amount,
+            nonce: 0,
+            payload: None,
+        };
+        <Self as crate::SubmitApi>::submit_transfer(self, tx).await
+    }
+
+    async fn get_balance(&self, addr: String) -> anyhow::Result<u64> {
+        <Self as crate::SubmitApi>::get_balance(self, addr).await
+    }
+}
+
+
+
+
+
+
+

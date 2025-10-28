@@ -1,0 +1,11 @@
+# Basic (hits POST /transfer; measures end-to-end commit)
+cargo run -p bench --release -- --n 5000 --concurrency 128 --url http://127.0.0.1:8367 --from alice --to bench-bob --csv e2e_c128.csv
+
+# Heavier load
+cargo run -p bench --release -- --n 20000 --concurrency 512 --url http://127.0.0.1:8367 --from alice --to bench-bob --csv e2e_c512.csv
+
+# Light latency probe
+cargo run -p bench --release -- --n 1000 --concurrency 32 --url http://127.0.0.1:8367 --from alice --to bench-bob --csv e2e_c32.csv
+
+# Check balance directly
+curl -s http://127.0.0.1:8367/balance/alice

@@ -11,7 +11,7 @@ use net_quic::spawn_quic_server;
 use net_p2p::spawn_p2p;
 use libp2p::Multiaddr;
 use configd::{load_yaml, watch_and_log};
-use consensus::store::{QcTcStore, FileStore};
+use consensus::store::FileStore;
 
 static EXEC_COMMITS: Lazy<IntCounter> = Lazy::new(|| register_int_counter!("exec_commits_total", "Committed batches at executor").unwrap());
 
@@ -157,7 +157,7 @@ async fn run_node(cfg: EnvConfig) -> anyhow::Result<()> {
     });
 
     let api: Arc<dyn types::SubmitApi> = node.clone();
-    rpc::serve(&cfg.rpc_addr, api, executor.clone()).await?;
+    rpc::serve(&cfg.rpc_addr, node::NodeApiAdapter(node.clone()), executor.clone()).await?;
 
     Ok(())
 }
